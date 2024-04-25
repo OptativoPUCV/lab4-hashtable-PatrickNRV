@@ -99,9 +99,18 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-
-
-    return NULL;
+  int pos = getLocation(map, key);
+  Pair *aux = map->buckets[pos];
+  while (aux != NULL)
+    {
+      if (is_equal(aux->key, key))
+      {
+        map->current = pos;
+        return aux;
+      }
+    }
+  
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
