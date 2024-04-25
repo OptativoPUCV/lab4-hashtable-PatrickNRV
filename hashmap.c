@@ -66,11 +66,11 @@ void enlarge(HashMap * map) {
 
   int Oldcapac = map->capacity;
   Pair ** OldArray = map->buckets;
-  //int Oldsize = map->size;
 
   map->capacity = map->capacity * 2;
   map->buckets = (Pair **)malloc(map->capacity * sizeof(Pair *));
   map->size = 0;
+  
   for (int i = 0; i < Oldcapac; i++)
     {
       if (OldArray[i] != NULL)
