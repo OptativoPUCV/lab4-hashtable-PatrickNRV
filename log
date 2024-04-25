@@ -26,3 +26,14 @@ Thu 25 Apr 2024 03:55:50 PM UTC:
  tests:  4|5
 total_score: 20/70
 8d8fb6e
+Thu 25 Apr 2024 04:02:37 PM UTC: 
+ hashmap.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:69:7: error: unused variable ‘Oldsize’ [-Werror=unused-variable]
+   69 |   int Oldsize = map->size;
+      |       ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+61bb12d

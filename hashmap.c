@@ -43,10 +43,12 @@ int getLocation (HashMap * map, char * key){
   
   while (map->buckets[pos] != NULL)
       pos = (pos + 1) % map->capacity;
+  
   return pos;
 }
 
 void insertMap(HashMap * map, char * key, void * value) {
+  
   int pos = getLocation(map, key);
   Pair *aux = malloc(sizeof(HashMap));
   aux->key = key;
@@ -60,9 +62,23 @@ void insertMap(HashMap * map, char * key, void * value) {
 }
 
 void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
+  enlarge_called = 1; //no borrar (testing purposes)
 
+  int Oldcapac = map->capacity;
+  Pair ** OldArray = map->buckets;
+  int Oldsize = map->size;
 
+  map->capacity = map->capacity * 2;
+  map->buckets = (Pair **)malloc(map->capacity * sizeof(Pair *));
+  map->size = 0;
+  for (int i = 0; i < Oldcapac; i++)
+    {
+      if (OldArray[i] != NULL)
+      {
+        insertMap(map, OldArray[i]->key, OldArray[i]->value);
+        free(OldArray[i]);
+      }
+    }
 }
 
 
