@@ -40,7 +40,7 @@ int is_equal(void* key1, void* key2){
 
 int getLocation (HashMap * map, char * key){
   int pos = hash(key, map->capacity);
-  while (map->buckets[pos] != NULL && map->buckets[pos]->key != NULL && !is_equal(map->buckets[pos]->key, key))
+  while (map->buckets[pos] != NULL && map->buckets[pos]->key != NULL)
       pos = (pos + 1) % map->capacity;
   return pos;
 }
