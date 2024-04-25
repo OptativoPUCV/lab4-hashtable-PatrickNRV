@@ -110,7 +110,7 @@ Pair * searchMap(HashMap * map,  char * key) {
       }
     }
   
-  return NULL;
+  return aux;
 }
 
 Pair * firstMap(HashMap * map) {
