@@ -111,11 +111,19 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 void eraseMap(HashMap * map,  char * key) { 
   int pos = hash(key, map->capacity);
-  if(map->buckets[pos]!=NULL)
-  {
-    map->size--;
-    map->buckets[pos] = NULL;
-  }
+
+  Pair *aux = map->buckets[pos];
+  while (aux != NULL)
+    {
+      if (is_equal(aux->key, key))
+      {
+        map->buckets[pos] = NULL;
+        map->size--; 
+        return;
+      }
+      pos = (pos + 1) % map->capacity;
+      aux = map->buckets[pos];
+    }
 }
 
 Pair * firstMap(HashMap * map) {
