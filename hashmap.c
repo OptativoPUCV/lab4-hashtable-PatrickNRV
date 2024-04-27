@@ -109,15 +109,14 @@ Pair * searchMap(HashMap * map,  char * key) {
   return NULL;
   }
 
-void eraseMap(HashMap * map,  char * key) { 
-  int pos = hash(key, map->capacity);
-  Pair *aux = searchMap(map, key);
-  if(map->buckets[pos]!=NULL)
-  {
-    map->size--;
-    free(map->buckets[pos]);
-    map->buckets[pos] = NULL;
-  }
+void eraseMap(HashMap *map, const char *key) {
+    int pos = hash(key);
+    if (map->buckets[pos] != NULL) {
+        free(map->buckets[pos]->key);
+        free(map->buckets[pos]);
+        map->buckets[pos] = NULL;
+        map->size--;
+    }
 }
 
 Pair * firstMap(HashMap * map) {

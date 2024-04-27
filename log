@@ -151,3 +151,32 @@ hashmap.c:114:9: error: unused variable ‘aux’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 2d53354
+Sat 27 Apr 2024 08:19:05 AM UTC: 
+ hashmap.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+In file included from test.c:4:
+hashmap.c:112:6: error: conflicting types for ‘eraseMap’; have ‘void(HashMap *, const char *)’ {aka ‘void(struct HashMap *, const char *)’}
+  112 | void eraseMap(HashMap *map, const char *key) {
+      |      ^~~~~~~~
+In file included from hashmap.c:6,
+                 from test.c:4:
+hashmap.h:24:6: note: previous declaration of ‘eraseMap’ with type ‘void(HashMap *, char *)’ {aka ‘void(struct HashMap *, char *)’}
+   24 | void eraseMap(HashMap * table, char * key);
+      |      ^~~~~~~~
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:113:20: error: passing argument 1 of ‘hash’ discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+  113 |     int pos = hash(key);
+      |                    ^~~
+hashmap.c:26:19: note: expected ‘char *’ but argument is of type ‘const char *’
+   26 | long hash( char * key, long capacity) {
+      |            ~~~~~~~^~~
+hashmap.c:113:15: error: too few arguments to function ‘hash’
+  113 |     int pos = hash(key);
+      |               ^~~~
+hashmap.c:26:6: note: declared here
+   26 | long hash( char * key, long capacity) {
+      |      ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+151c0b7
