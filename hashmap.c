@@ -111,8 +111,6 @@ Pair * searchMap(HashMap * map,  char * key) {
       pos = (pos + 1) % map->capacity;
       aux = map->buckets[pos];
     }
-  return NULL;
-  return aux;
 }
 
 Pair * firstMap(HashMap * map) {
