@@ -212,3 +212,14 @@ Sat 27 Apr 2024 08:22:47 AM UTC:
  tests:  10|2
 total_score: 50/70
 57a4045
+Sat 27 Apr 2024 08:23:59 AM UTC: 
+ hashmap.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:114:9: error: unused variable ‘aux’ [-Werror=unused-variable]
+  114 |   Pair *aux = searchMap(map, key);
+      |         ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+4aeaf85
