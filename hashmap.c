@@ -93,9 +93,14 @@ HashMap * createMap(long capacity) {
   return map;
 }
 
-void eraseMap(HashMap * map,  char * key) {    
-
-
+void eraseMap(HashMap * map,  char * key) { 
+  int pos = getLocation(map, key);
+  if(map->buckets[pos]!=NULL)
+  {
+    map->size--;
+    free(map->buckets[pos]);
+    map->buckets[pos] = NULL;
+  }
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
