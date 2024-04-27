@@ -119,7 +119,7 @@ void eraseMap(HashMap * map,  char * key) {
         map->buckets[pos] = NULL;
         map->size--; 
       }
-      pos = (pos + 1) % map->capacity;
+      pos = (pos + 1);
       aux = map->buckets[pos];
     }
   }
