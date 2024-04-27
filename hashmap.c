@@ -111,7 +111,6 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 void eraseMap(HashMap * map,  char * key) { 
   int pos = hash(key, map->capacity);
-  Pair *aux = searchMap(map, key);
   if(map->buckets[pos]!=NULL)
   {
     map->size--;
