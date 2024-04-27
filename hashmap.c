@@ -108,7 +108,8 @@ Pair * searchMap(HashMap * map,  char * key) {
         map->current = pos;
         return aux;
       }
-      pos = (pos + 1) % map->capacity;
+      else
+        pos = (pos + 1) % map->capacity;
     }
   
   return aux;
