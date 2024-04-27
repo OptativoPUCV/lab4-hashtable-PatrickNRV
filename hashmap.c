@@ -127,16 +127,16 @@ void eraseMap(HashMap * map,  char * key) {
 
 
 Pair * firstMap(HashMap * map) {
+  int pos = 0;
 
-  while (map->current != -1)
+  Pair *aux = map->buckets[pos];
+  while (aux == NULL)
     {
-      if (map->buckets[map->current] != NULL)
-      {
-        return map->buckets[map->current];
-      }
-      map->current = (map->current + 1) % map->capacity;
+      pos = (pos + 1) % map->capacity;
+      aux = map->buckets[pos];
     }
-    return NULL;
+  map->current = pos;
+  return aux;
 }
 
 Pair * nextMap(HashMap * map) {
