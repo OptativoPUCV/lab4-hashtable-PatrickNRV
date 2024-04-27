@@ -79,3 +79,17 @@ Sat 27 Apr 2024 07:30:44 AM UTC:
  tests:  7|3
 total_score: 40/70
 a02efd3
+Sat 27 Apr 2024 08:00:19 AM UTC: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:109:16: error: returning ‘int’ from a function with return type ‘Pair *’ makes pointer from integer without a cast [-Werror=int-conversion]
+  109 |         return pos;
+      |                ^~~
+hashmap.c:113:10: error: returning ‘int’ from a function with return type ‘Pair *’ makes pointer from integer without a cast [-Werror=int-conversion]
+  113 |   return pos;
+      |          ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+628d313
