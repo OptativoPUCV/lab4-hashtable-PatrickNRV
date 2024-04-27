@@ -109,7 +109,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   return NULL;
   }
 
-void eraseMap(HashMap *map, const char *key) {
+void eraseMap(HashMap *map, char *key) {
     int pos = hash(key);
     if (map->buckets[pos] != NULL) {
         free(map->buckets[pos]->key);
