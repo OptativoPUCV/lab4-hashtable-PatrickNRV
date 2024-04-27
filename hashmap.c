@@ -106,11 +106,12 @@ Pair * searchMap(HashMap * map,  char * key) {
       if (is_equal(aux->key, key))
       {
         map->current = pos;
-        return pos;
+        return aux;
       }
+      pos = (pos + 1) % map->capacity;
     }
   
-  return pos;
+  return aux;
 }
 
 Pair * firstMap(HashMap * map) {
