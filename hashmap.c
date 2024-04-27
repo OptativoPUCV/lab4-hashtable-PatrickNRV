@@ -112,7 +112,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 void eraseMap(HashMap *map,  char *key) {
     Pair *aux = searchMap(map, key);
     if (aux != NULL) {
-        int pos = hash(key);
+        int pos = hash(key, map->capacity);
         free(map->buckets[pos]->key);
         free(map->buckets[pos]);
         map->buckets[pos] = NULL;
