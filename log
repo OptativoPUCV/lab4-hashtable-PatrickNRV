@@ -283,3 +283,9 @@ Sat 27 Apr 2024 08:46:17 AM UTC:
  tests:  13|1
 total_score: 60/70
 75778d3
+Sat 27 Apr 2024 08:49:16 AM UTC: 
+ hashmap.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+ tests:  13|1
+total_score: 60/70
+caa0e81
