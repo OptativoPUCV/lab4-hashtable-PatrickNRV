@@ -99,7 +99,7 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-  int pos = getLocation(map, key);
+  int pos = hash(key, map->capacity);
   Pair *aux = map->buckets[pos];
   while (aux != NULL)
     {
@@ -108,10 +108,10 @@ Pair * searchMap(HashMap * map,  char * key) {
         map->current = pos;
         return aux;
       }
-      else
-        pos = (pos + 1) % map->capacity;
+      pos = (pos + 1) % map->capacity;
+      aux = map->buckets[pos];
     }
-  
+  return NULL;
   return aux;
 }
 
